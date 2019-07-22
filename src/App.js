@@ -43,6 +43,7 @@ class App extends Component {
     this.setState({ persons: persons });
   }
 
+  
   render() {
     const style = {
       backgroundColor: 'green', 
@@ -52,30 +53,38 @@ class App extends Component {
       padding: '8px', 
       cursor: 'pointer'
     }
-
+    
     let persons = null; 
-
+    
     if (this.state.showPersons) {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
             return <Person 
-              click={() => this.deletePersonHandler(index)}
-              name={person.name}
-              age={person.age}
-              key={person.id} 
-              changed={(event) => this.nameChangedHandler(event, person.id)}/>
+            click={() => this.deletePersonHandler(index)}
+            name={person.name}
+            age={person.age}
+            key={person.id} 
+            changed={(event) => this.nameChangedHandler(event, person.id)}/>
           })}
         </div>
       )
-
+      
       style.backgroundColor = 'red'
+    }
+    
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red'); // classes = ['red']
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold'); // classes = ['red', 'bold']
     }
 
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
+        <p className={classes.join(' ')}>This is really working!</p>
         <button 
           style={style}
           onClick={this.togglePersonsHandler}>Switch Name</button>
