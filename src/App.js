@@ -52,7 +52,11 @@ class App extends Component {
       font: 'inherit', 
       border: '1px', 
       padding: '8px', 
-      cursor: 'pointer'
+      cursor: 'pointer', 
+      ':hover': {
+        backgroundColor: 'lightgreen', 
+        color: 'black'
+      }
     }
     
     let persons = null; 
@@ -69,9 +73,13 @@ class App extends Component {
             changed={(event) => this.nameChangedHandler(event, person.id)}/>
           })}
         </div>
-      )
+      );
       
-      style.backgroundColor = 'red'
+      style.backgroundColor = 'red'; 
+      style[':hover'] = {
+        backgroundColor: 'lightred', 
+        color: 'black'
+      }
     }
     
     const classes = [];
