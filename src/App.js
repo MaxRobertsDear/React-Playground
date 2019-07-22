@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
+import { white } from 'ansi-colors';
 
 class App extends Component {
   state = {
@@ -44,9 +45,10 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white', 
+      backgroundColor: 'green', 
+      color: 'white',
       font: 'inherit', 
-      border: '1px solid blue', 
+      border: '1px', 
       padding: '8px', 
       cursor: 'pointer'
     }
@@ -66,6 +68,8 @@ class App extends Component {
           })}
         </div>
       )
+
+      style.backgroundColor = 'red'
     }
 
     return (
