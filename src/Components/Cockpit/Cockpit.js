@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import classes from './Cockpit.css'
 
 const cockpit = (props) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    console.log('[Cockpit.js] useEffect')
+  })
 
   const assignedClasses = [];
   let btnClass = '';
