@@ -6,7 +6,11 @@ const cockpit = (props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     console.log('[Cockpit.js] useEffect')
-  })
+    // Http request ...
+    setTimeout(() => {
+      alert('Saved data to the cloud')
+    }, 1000)
+  }, [props.persons])
 
   const assignedClasses = [];
   let btnClass = '';
