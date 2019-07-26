@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import classes from './Cockpit.css'
 
 const cockpit = (props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  const toggleBtnRef = useRef(null)
+  
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     console.log('[Cockpit.js] useEffect')
     // Http request ...
-    setTimeout(() => {
-      alert('Saved data to the cloud')
-    }, 1000)
+    // setTimeout(() => {
+      //   alert('Saved data to the cloud')
+      // }, 1000)
+    toggleBtnRef.current.click()
     return () => {
       console.log('[Cockpit.js] cleanup work in useEffect')
     }
@@ -33,8 +37,9 @@ const cockpit = (props) => {
       <h1>{props.title}</h1>
         <p className={assignedClasses.join(' ')}>This is really working!</p>
         <button 
+          ref={toggleBtnRef}
           className={btnClass}
-          onClick={props.clicked}>Switch Name</button>
+          onClick={props.clicked}>Toggle Persons</button>
     </div>
   );
 }
